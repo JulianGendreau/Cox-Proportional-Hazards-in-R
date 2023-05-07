@@ -1,0 +1,335 @@
+
+R version 4.2.2 (2022-10-31) -- "Innocent and Trusting"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(readxl)
+> Spinal_Chordoma_Data_GTR <- read_excel("Desktop/Spinal Chordoma Data GTR.xlsx")
+> View(Spinal_Chordoma_Data_GTR)                                               
+> attach(Spinal_Chordoma_Data_GTR)
+> library(survival)
+> cox.cox <- coxph(Surv(PFS, `Recurre0ce
++ Recurrence`) ~ Radiotherapy)
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(PFS, `Recurre0ce\r\nRecurrence`) ~ Radiotherapy)
+
+  n= 126, number of events= 48 
+
+               coef exp(coef) se(coef)     z Pr(>|z|)  
+Radiotherapy 0.7150    2.0442   0.2932 2.439   0.0147 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+             exp(coef) exp(-coef) lower .95 upper .95
+Radiotherapy     2.044     0.4892     1.151     3.631
+
+Concordance= 0.589  (se = 0.04 )
+Likelihood ratio test= 5.91  on 1 df,   p=0.02
+Wald test            = 5.95  on 1 df,   p=0.01
+Score (logrank) test = 6.2  on 1 df,   p=0.01
+
+> cox.cox <- coxph(Surv(PFS, Age) ~ Radiotherapy)
+Error in coxph(Surv(PFS, Age) ~ Radiotherapy) : 
+  No (non-missing) observations
+In addition: Warning message:
+In Surv(PFS, Age) : Invalid status value, converted to NA
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(PFS, `Recurre0ce\r\nRecurrence`) ~ Radiotherapy)
+
+  n= 126, number of events= 48 
+
+               coef exp(coef) se(coef)     z Pr(>|z|)  
+Radiotherapy 0.7150    2.0442   0.2932 2.439   0.0147 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+             exp(coef) exp(-coef) lower .95 upper .95
+Radiotherapy     2.044     0.4892     1.151     3.631
+
+Concordance= 0.589  (se = 0.04 )
+Likelihood ratio test= 5.91  on 1 df,   p=0.02
+Wald test            = 5.95  on 1 df,   p=0.01
+Score (logrank) test = 6.2  on 1 df,   p=0.01
+
+> cox.cox <- coxph(Surv(PFS, Age) ~ Radiotherapy)
+Error in coxph(Surv(PFS, Age) ~ Radiotherapy) : 
+  No (non-missing) observations
+In addition: Warning message:
+In Surv(PFS, Age) : Invalid status value, converted to NA
+> library(readxl)
+> Spinal_Chordoma_Data_GTR <- read_excel("Desktop/Spinal Chordoma Data GTR.xlsx")
+> View(Spinal_Chordoma_Data_GTR)                                               
+> attach(Spinal_Chordoma_Data_GTR)
+The following objects are masked from Spinal_Chordoma_Data_GTR (pos = 4):
+
+    Death, Grosstotal, Male, Osurv, Patient#, PFS, Radiotherapy,
+    RTType, Sacrum, Study
+
+> cox.cox <- coxph(Surv(PFS, Age) ~ Radiotherapy)
+Error in coxph(Surv(PFS, Age) ~ Radiotherapy) : 
+  No (non-missing) observations
+In addition: Warning message:
+In Surv(PFS, Age) : Invalid status value, converted to NA
+> library(readxl)
+> Spinal_Chordoma_Data_GTR <- read_excel("Desktop/Spinal Chordoma Data GTR.xlsx", 
++     col_types = c("text", "numeric", "numeric", 
++         "numeric", "numeric", "numeric", 
++         "numeric", "numeric", "numeric", 
++         "numeric", "text", "numeric"))
+> View(Spinal_Chordoma_Data_GTR)                                               
+> attach(Spinal_Chordoma_Data_GTR)
+The following objects are masked from Spinal_Chordoma_Data_GTR (pos = 3):
+
+    Ages, Death, Grosstotal, Male, Osurv, Patient#, PFS, Radiotherapy,
+    Recurence, RTType, Sacrum, Study
+
+The following objects are masked from Spinal_Chordoma_Data_GTR (pos = 5):
+
+    Death, Grosstotal, Male, Osurv, Patient#, PFS, Radiotherapy,
+    RTType, Sacrum, Study
+
+> cox.cox <- coxph(Surv(PFS, Age) ~ Radiotherapy)
+Error in coxph(Surv(PFS, Age) ~ Radiotherapy) : 
+  No (non-missing) observations
+In addition: Warning message:
+In Surv(PFS, Age) : Invalid status value, converted to NA
+> cox.cox <- coxph(Surv(PFS,Age) ~ Radiotherapy)
+Error in coxph(Surv(PFS, Age) ~ Radiotherapy) : 
+  No (non-missing) observations
+In addition: Warning message:
+In Surv(PFS, Age) : Invalid status value, converted to NA
+> cox.cox <- coxph(Surv(PFS, Sacrum) ~ Radiotherapy)
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(PFS, Sacrum) ~ Radiotherapy)
+
+  n= 126, number of events= 104 
+
+                coef exp(coef) se(coef)      z Pr(>|z|)
+Radiotherapy -0.0270    0.9734   0.2097 -0.129    0.898
+
+             exp(coef) exp(-coef) lower .95 upper .95
+Radiotherapy    0.9734      1.027    0.6453     1.468
+
+Concordance= 0.505  (se = 0.028 )
+Likelihood ratio test= 0.02  on 1 df,   p=0.9
+Wald test            = 0.02  on 1 df,   p=0.9
+Score (logrank) test = 0.02  on 1 df,   p=0.9
+
+> cox.cox <- coxph(Surv(PFS, Male) ~ Radiotherapy)
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(PFS, Male) ~ Radiotherapy)
+
+  n= 126, number of events= 85 
+
+               coef exp(coef) se(coef)     z Pr(>|z|)
+Radiotherapy 0.1523    1.1646   0.2262 0.673    0.501
+
+             exp(coef) exp(-coef) lower .95 upper .95
+Radiotherapy     1.165     0.8587    0.7475     1.814
+
+Concordance= 0.54  (se = 0.031 )
+Likelihood ratio test= 0.45  on 1 df,   p=0.5
+Wald test            = 0.45  on 1 df,   p=0.5
+Score (logrank) test = 0.45  on 1 df,   p=0.5
+
+> cox.cox <- coxph(Surv(PFS, Recurence) ~ Radiotherapy)
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(PFS, Recurence) ~ Radiotherapy)
+
+  n= 126, number of events= 48 
+
+               coef exp(coef) se(coef)     z Pr(>|z|)  
+Radiotherapy 0.7150    2.0442   0.2932 2.439   0.0147 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+             exp(coef) exp(-coef) lower .95 upper .95
+Radiotherapy     2.044     0.4892     1.151     3.631
+
+Concordance= 0.589  (se = 0.04 )
+Likelihood ratio test= 5.91  on 1 df,   p=0.02
+Wald test            = 5.95  on 1 df,   p=0.01
+Score (logrank) test = 6.2  on 1 df,   p=0.01
+
+> cox.cox <- coxph(Surv(PFS, Recurence) ~ Ages)
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(PFS, Recurence) ~ Ages)
+
+  n= 126, number of events= 48 
+
+        coef exp(coef) se(coef)     z Pr(>|z|)
+Ages 0.01372   1.01381  0.01287 1.066    0.286
+
+     exp(coef) exp(-coef) lower .95 upper .95
+Ages     1.014     0.9864    0.9886      1.04
+
+Concordance= 0.535  (se = 0.054 )
+Likelihood ratio test= 1.14  on 1 df,   p=0.3
+Wald test            = 1.14  on 1 df,   p=0.3
+Score (logrank) test = 1.14  on 1 df,   p=0.3
+
+> cox.cox <- coxph(Surv(PFS, Recurence) ~ Male)
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(PFS, Recurence) ~ Male)
+
+  n= 126, number of events= 48 
+
+         coef exp(coef) se(coef)      z Pr(>|z|)
+Male -0.09994   0.90489  0.30225 -0.331    0.741
+
+     exp(coef) exp(-coef) lower .95 upper .95
+Male    0.9049      1.105    0.5004     1.636
+
+Concordance= 0.508  (se = 0.039 )
+Likelihood ratio test= 0.11  on 1 df,   p=0.7
+Wald test            = 0.11  on 1 df,   p=0.7
+Score (logrank) test = 0.11  on 1 df,   p=0.7
+
+> cox.cox <- coxph(Surv(Osurv, Death) ~ Radiotherapy)
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(Osurv, Death) ~ Radiotherapy)
+
+  n= 126, number of events= 26 
+
+               coef exp(coef) se(coef)     z Pr(>|z|)
+Radiotherapy 0.3186    1.3751   0.3937 0.809    0.418
+
+             exp(coef) exp(-coef) lower .95 upper .95
+Radiotherapy     1.375     0.7272    0.6357     2.975
+
+Concordance= 0.547  (se = 0.054 )
+Likelihood ratio test= 0.65  on 1 df,   p=0.4
+Wald test            = 0.65  on 1 df,   p=0.4
+Score (logrank) test = 0.66  on 1 df,   p=0.4
+
+> cox.cox <- coxph(Surv(PFS, Recurence) ~ Radiotherapy + Ages + Sacrum + Male)
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(PFS, Recurence) ~ Radiotherapy + Ages + 
+    Sacrum + Male)
+
+  n= 126, number of events= 48 
+
+                  coef exp(coef)  se(coef)      z Pr(>|z|)  
+Radiotherapy  0.668875  1.952039  0.313066  2.137   0.0326 *
+Ages          0.006813  1.006837  0.013246  0.514   0.6070  
+Sacrum       -0.206104  0.813749  0.386750 -0.533   0.5941  
+Male          0.080472  1.083799  0.314333  0.256   0.7979  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+             exp(coef) exp(-coef) lower .95 upper .95
+Radiotherapy    1.9520     0.5123    1.0568     3.606
+Ages            1.0068     0.9932    0.9810     1.033
+Sacrum          0.8137     1.2289    0.3813     1.737
+Male            1.0838     0.9227    0.5853     2.007
+
+Concordance= 0.614  (se = 0.046 )
+Likelihood ratio test= 6.57  on 4 df,   p=0.2
+Wald test            = 6.64  on 4 df,   p=0.2
+Score (logrank) test = 6.91  on 4 df,   p=0.1
+
+> cox.cox <- coxph(Surv(Osurv, Death) ~ Ages)
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(Osurv, Death) ~ Ages)
+
+  n= 126, number of events= 26 
+
+        coef exp(coef) se(coef)     z Pr(>|z|)   
+Ages 0.04800   1.04918  0.01792 2.679  0.00738 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+     exp(coef) exp(-coef) lower .95 upper .95
+Ages     1.049     0.9531     1.013     1.087
+
+Concordance= 0.652  (se = 0.068 )
+Likelihood ratio test= 7.53  on 1 df,   p=0.006
+Wald test            = 7.18  on 1 df,   p=0.007
+Score (logrank) test = 7.32  on 1 df,   p=0.007
+
+> cox.cox <- coxph(Surv(Osurv, Death) ~ Sacrum)
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(Osurv, Death) ~ Sacrum)
+
+  n= 126, number of events= 26 
+
+         coef exp(coef) se(coef)     z Pr(>|z|)
+Sacrum 0.8602    2.3637   0.7368 1.168    0.243
+
+       exp(coef) exp(-coef) lower .95 upper .95
+Sacrum     2.364     0.4231    0.5577     10.02
+
+Concordance= 0.533  (se = 0.038 )
+Likelihood ratio test= 1.74  on 1 df,   p=0.2
+Wald test            = 1.36  on 1 df,   p=0.2
+Score (logrank) test = 1.45  on 1 df,   p=0.2
+
+> cox.cox <- coxph(Surv(Osurv, Death) ~ Male)
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(Osurv, Death) ~ Male)
+
+  n= 126, number of events= 26 
+
+         coef exp(coef) se(coef)      z Pr(>|z|)
+Male -0.01179   0.98828  0.41405 -0.028    0.977
+
+     exp(coef) exp(-coef) lower .95 upper .95
+Male    0.9883      1.012     0.439     2.225
+
+Concordance= 0.52  (se = 0.052 )
+Likelihood ratio test= 0  on 1 df,   p=1
+Wald test            = 0  on 1 df,   p=1
+Score (logrank) test = 0  on 1 df,   p=1
+
+> cox.cox <- coxph(Surv(Osurv, Death) ~ Ages + Radiotherapy + Sacrum + Male)
+> summary(cox.cox)
+Call:
+coxph(formula = Surv(Osurv, Death) ~ Ages + Radiotherapy + Sacrum + 
+    Male)
+
+  n= 126, number of events= 26 
+
+                coef exp(coef) se(coef)     z Pr(>|z|)   
+Ages         0.04958   1.05083  0.01818 2.728  0.00637 **
+Radiotherapy 0.30030   1.35027  0.41683 0.720  0.47126   
+Sacrum       1.10875   3.03057  0.74879 1.481  0.13868   
+Male         0.09478   1.09941  0.43186 0.219  0.82629   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+             exp(coef) exp(-coef) lower .95 upper .95
+Ages             1.051     0.9516    1.0141     1.089
+Radiotherapy     1.350     0.7406    0.5965     3.057
+Sacrum           3.031     0.3300    0.6985    13.149
+Male             1.099     0.9096    0.4716     2.563
+
+Concordance= 0.655  (se = 0.071 )
+Likelihood ratio test= 10.64  on 4 df,   p=0.03
+Wald test            = 9.78  on 4 df,   p=0.04
+Score (logrank) test = 10.06  on 4 df,   p=0.04
